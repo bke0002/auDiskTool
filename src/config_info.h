@@ -5,7 +5,7 @@
 #ifndef AUDISKTOOL_CONFIG_INFO_H
 #define AUDISKTOOL_CONFIG_INFO_H
 
-#endif //AUDISKTOOL_CONFIG_INFO_H
+
 
 class config_info {
     private:
@@ -17,11 +17,20 @@ class config_info {
         int blk_write;
         int blk_writes;
         int kb_write;
+        bool config_updated;
 
     public:
     int getInterval() const { return interval; }
 
-    void setInterval(int interval) { config_info::interval = interval; }
+    void setInterval(int interval) {
+        if(interval != getInterval())  {
+            config_info::interval = interval;
+            config_updated = true;
+            std::cout << "The sampling interval has been changed to " << interval << "seconds.\n";
+        } else {
+            std::cout << "Interval is already " << interval;
+        }
+    }
 
     int getCount() const { return count; }
 
@@ -51,6 +60,10 @@ class config_info {
 
     void setKb_write(int kb_write) { config_info::kb_write = kb_write; }
 
+    void printConfig(){}
 
+    void save(){}
 
 };
+
+#endif //AUDISKTOOL_CONFIG_INFO_H
