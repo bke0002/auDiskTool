@@ -158,7 +158,7 @@ public:
             //save
             cout << "Saving configuration settings..\n";
 
-            ofstream outStream("audisktool.conf");
+            ofstream outStream("audisktool.conf"); //open file
             outStream << interval;
             outStream << " ";
 
@@ -182,6 +182,8 @@ public:
 
             outStream << kb_writes;
             outStream << " ";
+
+            outStream.close(); //close file
         }
         else {
             std::cout << "audisktool.conf has not been updated. There is no need to save the file.\n";
@@ -200,6 +202,8 @@ public:
         inStream >> blk_writes;
         inStream >> kb_writes;
 
+        inStream.close();
+        
         reportName = "report.adt";
         config_updated = false;
 

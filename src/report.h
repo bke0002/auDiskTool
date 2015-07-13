@@ -21,6 +21,7 @@ class report {
             string file = "\"" + fileName + "\"";
             cout << "file name: "  << file << endl << endl;
 //            ifstream inStream(fileName);
+//            inStream.close();
         };
         void writeFile();
         std::string getFileNAme() { return report::fileName; } //todo: necessary?

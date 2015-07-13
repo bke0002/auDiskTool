@@ -158,6 +158,7 @@ void launch(){
             }
         }
         else if(type == "exit"){
+            //todo: move to Tool class
             cout << "Determining if config settings have been updated..\n";
             configInfo.save();
             cout << "Exiting..\n";
@@ -165,6 +166,7 @@ void launch(){
         }
 
         else if(type == "help"){
+            //todo: move to Tool class
             printHelp();
         }
 
