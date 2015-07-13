@@ -203,7 +203,7 @@ public:
         inStream >> kb_writes;
 
         inStream.close();
-        
+
         reportName = "report.adt";
         config_updated = false;
 
