@@ -18,12 +18,15 @@ class report {
 
     public:
         void printReport(){
+            //todo: need to catch exception where file can't be opened
             string file = "\"" + fileName + "\"";
             cout << "file name: "  << file << endl << endl;
 //            ifstream inStream(fileName);
 //            inStream.close();
         };
+
         void writeFile();
+
         std::string getFileNAme() { return report::fileName; } //todo: necessary?
 
         report(config_info configInfo) {

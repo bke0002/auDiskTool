@@ -13,7 +13,7 @@ void printHelp();
 command inputCommand;
 
 
-const string version = "1.0.0";
+const string VERSION = "1.0.0";
 
 
 config_info configInfo;
@@ -30,7 +30,7 @@ int main() {
 
 void launch(){
 
-    cout << "auDiskTool, version " << version << ". Type 'help' to find more about commands.\n\n";
+    cout << "auDiskTool, VERSION " << VERSION << ". Type 'help' to find more about commands.\n\n";
 
     while(1) {
 
@@ -182,7 +182,7 @@ void launch(){
 }
 
 
-void printHelp(){
+void printHelp(){ //todo: move to Tool class
     cout << "run - run the monitoring tool.\n"
             "set interval [value] – set sampling period to [value]\n"
             "set count [value] – set the number of records to [value]\n"

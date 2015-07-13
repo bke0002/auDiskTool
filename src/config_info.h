@@ -133,7 +133,7 @@ public:
     string getReportName(){ return reportName;}
 
     void setReportName(string name){
-        //todo: need to account for taking in full path? It may actually just work as is though.
+        //todo: need to account for taking in full path? It may actually just work as is though. Will test.
         string oldName = getReportName();
         config_info::reportName = name;
         cout << "The report file name is changed from '" << oldName << "' to '" << getReportName()
