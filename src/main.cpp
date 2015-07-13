@@ -15,6 +15,9 @@ command inputCommand;
 
 const string version = "1.0.0";
 
+
+config_info configInfo;
+
 int main() {
 
     launch();
@@ -31,6 +34,7 @@ int main() {
 }
 
 void launch(){
+
     cout << "auDiskTool, version " << version << ". Type 'help' to find more about commands.\n\n";
 
     while(1) {
@@ -47,7 +51,8 @@ void launch(){
         else if(type == "set") {
 
             if(flag == "report") {
-                cout << "update report file name.\n";
+                configInfo.setReportName(value);
+//                cout << "report name updated to: " << configInfo.getReportName() << endl;
             }
 
             else if (flag == "interval" || flag == "count") {
@@ -60,6 +65,7 @@ void launch(){
                 }
                 else if (flag == "interval") {
                     cout << "Execute setInterval(" << value << ") method.\n";
+                    configInfo.setInterval(value);
                 }
                 else if (flag == "count") {
                     cout << "Execute setCount(" << value << ") method.\n";
@@ -74,6 +80,7 @@ void launch(){
                 }
                 else {
                     cout << "Execute setBlk_read(" << value << ") method.\n";
+                    configInfo.setBlk_read(value);
                 }
             }
             else if(flag == "blk_read/s"){
@@ -85,6 +92,7 @@ void launch(){
                 }
                 else {
                     cout << "Execute setBlk_reads(" << value << ") method.\n";
+                    configInfo.setBlk_reads(value);
                 }
             }
             else if(flag == "kb_read/s"){
@@ -96,6 +104,7 @@ void launch(){
                 }
                 else {
                     cout << "Execute setKb_reads(" << value << ") method.\n";
+                    configInfo.setKb_reads(value);
                 }
             }
             else if(flag == "blk_write"){
@@ -107,6 +116,7 @@ void launch(){
                 }
                 else {
                     cout << "Execute setBlk_write(" << value << ") method.\n";
+                    configInfo.setBlk_write(value);
                 }
             }
             else if(flag == "blk_write/s"){
@@ -118,6 +128,7 @@ void launch(){
                 }
                 else {
                     cout << "Execute setBlk_writes(" << value << ") method.\n";
+                    configInfo.setBlk_writes(value);
                 }
             }
             else if(flag == "kb_write"){
@@ -129,6 +140,7 @@ void launch(){
                 }
                 else {
                     cout << "Execute setKb_write(" << value << ") method.\n";
+                    configInfo.setKb_writes(value);
                 }
             }
             else {
@@ -138,11 +150,12 @@ void launch(){
         else if(type == "print"){
 
             if(flag == "conf"){
-                cout << "Execute printConfig() method\n";
+                configInfo.printConfig();
             }
 
             else if(flag == "report"){
                 cout << "Execute printReport() method\n";
+                //todo: insert report command
             }
 
             else {
@@ -150,6 +163,8 @@ void launch(){
             }
         }
         else if(type == "exit"){
+            cout << "Determining if config settings have been updated..\n";
+            configInfo.save();
             cout << "Exiting..\n";
             exit(0);
         }
@@ -159,15 +174,16 @@ void launch(){
         }
 
         else if(type == "save") {
-            cout << "save config settings.\n";
+            configInfo.save();
         }
         else {
             cout << "Please enter a valid command. Type 'help' to see commands.\n";
         }
 
-    }
+    } // End while loop
 
 }
+
 
 void printHelp(){
     cout << "run - run the monitoring tool.\n"
