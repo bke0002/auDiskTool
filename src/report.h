@@ -4,20 +4,30 @@
 
 #ifndef AUDISKTOOL_REPORT_H
 #define AUDISKTOOL_REPORT_H
+using std::ifstream;
+using std::ofstream;
 
 
-
-#include <iostream>
+//#include <iostream>
 class report {
 
     private:
         std::string fileName;
         std::string record;
+        config_info configInfo;
 
     public:
-        void printReport();
+        void printReport(){
+            string file = "\"" + fileName + "\"";
+            cout << "file name: "  << file << endl << endl;
+//            ifstream inStream(fileName);
+        };
         void writeFile();
-        void setFileName(std::string fileName){ report::fileName = fileName; }
-        std::string getFileNAme() { return report::fileName; }
+        std::string getFileNAme() { return report::fileName; } //todo: necessary?
+
+        report(config_info configInfo) {
+            report::configInfo = configInfo;
+            report::fileName = configInfo.getReportName();
+        }
 };
 #endif //AUDISKTOOL_REPORT_H

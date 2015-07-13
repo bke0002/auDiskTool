@@ -17,18 +17,13 @@ const string version = "1.0.0";
 
 
 config_info configInfo;
+report report1(configInfo);
 
 int main() {
 
+    report1.printReport();
     launch();
 
-//    cout << "auDiskTool, version " << version << ". Type ‘help’ to find more about commands.";
-
-//    input_command(inputCommand);
-
-//    cout << "Type is: " << inputCommand.type << endl;
-//    cout << "Flag is: " << inputCommand.flag << endl;
-//    cout << "Value is: " << inputCommand.value << endl;
 
     return 0;
 }
