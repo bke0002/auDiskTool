@@ -64,6 +64,7 @@ void launch(){
                 }
                 else if (flag == "count") {
                     cout << "Execute setCount(" << value << ") method.\n";
+                    configInfo.setCount(value);
                 }
             }
             else if(flag == "blk_read"){
@@ -184,7 +185,7 @@ void launch(){
 
 void printHelp(){ //todo: move to Tool class
     cout << "run - run the monitoring tool.\n"
-            "set interval [value] – set sampling period to [value]\n"
+            "set interval [value]: set sampling period to [value]\n"
             "set count [value] – set the number of records to [value]\n"
             "set report [name] – set report file name to [name]\n"
             "set blk_read [0|1] – set print_blk_read to 0 or 1\n"
