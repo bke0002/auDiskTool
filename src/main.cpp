@@ -64,6 +64,7 @@ void launch(){
                 }
                 else if (flag == "count") {
                     cout << "Execute setCount(" << value << ") method.\n";
+                    // added call to setCount also trying to figure out how to use github so I will delete this comment later
                     configInfo.setCount(value);
                 }
             }
